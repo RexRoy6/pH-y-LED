@@ -66,7 +66,6 @@ for (int i = 0; i < 10; i++) {
   float volt = ((float)avgval * 5.0 / 1024) / 6;
   float temp_compensation = temp1; // Adjust this based on your sensor specs
   float ph_act = -5.70 * volt + calibration_value + temp_compensation;
-  float ph_act = -5.70 * volt + calibration_value;
 
   lcd.setCursor(4, 0);
   lcd.print("pH: ");
