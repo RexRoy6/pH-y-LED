@@ -13,7 +13,7 @@ int buffer_arr[10], temp;
 
 //proceso de calibracon de ph
 //Correction = Actual pH - Current reading
-float Correction = 3.86 - (-0.75);
+float Correction = 3.86 - (23.8481);
 float calibration_value = 21.34 + (Correction);
 
 void setup() {
