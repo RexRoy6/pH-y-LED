@@ -13,7 +13,7 @@ int buffer_arr[10], temp;
 
 //proceso de calibracon de ph
 //Correction = Actual pH - Current reading
-float Correction = 3.86 - (23.8481);
+float Correction = 3.86 - (22.2);
 float calibration_value = 21.34 + (Correction);
 
 void setup() {
@@ -36,10 +36,6 @@ sensors.begin();   //Se inicia el sensor
 void loop() {
 sensors.requestTemperatures();   //Se envía el comando para leer la temperatura
 float temp1= sensors.getTempCByIndex(0); //Se obtiene la temperatura en ºC
-
-Serial.print("Temperatura= ");
-Serial.print(temp1);
-Serial.println(" C");
 
 
 for (int i = 0; i < 10; i++) {
@@ -66,6 +62,18 @@ for (int i = 0; i < 10; i++) {
   float volt = ((float)avgval * 5.0 / 1024) / 6;
   float temp_compensation = temp1; // Adjust this based on your sensor specs
   float ph_act = -5.70 * volt + calibration_value + temp_compensation;
+
+
+
+  ////---
+Serial.print("Temperatura= ");
+Serial.print(temp1);
+Serial.println(" C");
+Serial.println("----------");
+Serial.print("Ph Sensor nigga= ");
+Serial.print(ph_act);
+Serial.println("----------");
+//----
 
   lcd.setCursor(4, 0);
   lcd.print("pH: ");
