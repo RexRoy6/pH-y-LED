@@ -7,11 +7,14 @@ OneWire ourWire(2);                //Se establece el pin 2  como bus OneWire
 DallasTemperature sensors(&ourWire); //Se declara una variable u objeto para nuestro sensor
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
-float calibration_value = 21.34;
-int phval = 0;
+float phval = 0.0;
 unsigned long int avgval;
 int buffer_arr[10], temp;
 
+//proceso de calibracon de ph
+//Correction = Actual pH - Current reading
+float Correction = 3.86 - (-0.75);
+float calibration_value = 21.34 + (Correction);
 
 void setup() {
 delay(1000);
@@ -55,12 +58,14 @@ for (int i = 0; i < 10; i++) {
     }
   }
 
-  avgval = 0;
+  avgval = 0.0;
   for (int i = 2; i < 8; i++) {
     avgval += buffer_arr[i];
   }
 
-  float volt = (float)avgval * 5.0 / 1024 / 6;
+  float volt = ((float)avgval * 5.0 / 1024) / 6;
+  float temp_compensation = temp1; // Adjust this based on your sensor specs
+  float ph_act = -5.70 * volt + calibration_value + temp_compensation;
   float ph_act = -5.70 * volt + calibration_value;
 
   lcd.setCursor(4, 0);
