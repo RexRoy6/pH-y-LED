@@ -1,0 +1,18 @@
+=== CALIBRATION COMPLETE ===
+pH 4.0 Voltage: 3.6800
+pH 7.0 Voltage: 3.6727
+Slope: -409.6000
+Offset: 1511.3333
+===========================
+=== CALIBRATION COMPLETE ===
+pH 4.0 Voltage: 3.6800
+pH 7.0 Voltage: 3.6702
+Slope: -307.2000
+Offset: 1134.5000
+===========================
+=== CALIBRATION COMPLETE ===
+pH 4.0 Voltage: 3.6800
+pH 7.0 Voltage: 3.6694
+Slope: -283.5714
+Offset: 1047.5462
+===========================
