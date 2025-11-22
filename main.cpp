@@ -11,9 +11,9 @@ float phval = 0.0;
 unsigned long int avgval;
 int buffer_arr[10], temp;
 
-// PROPER CALIBRATION VALUES - YOU NEED TO ADJUST THESE
-float calibration_offset = 25.88423;  // Start with 0, then calibrate
-float slope = -5.70;  // This might need adjustment too
+// YOUR CALCULATED CALIBRATION VALUES
+float calibration_offset = 25.88423;  // Your calculated offset
+float slope = -5.70;  // Keep the same slope for now
 
 void setup() {
   delay(1000);
@@ -58,7 +58,7 @@ void loop() {
 
   float volt = ((float)avgval * 5.0 / 1024) / 6;
   
-  // Calculate pH with calibration
+  // Calculate pH with your calibration
   float ph_act = (slope * volt) + calibration_offset;
   
   // Temperature compensation
@@ -71,14 +71,15 @@ void loop() {
   Serial.print("Voltage: ");
   Serial.println(volt, 4);
   Serial.print("pH Raw: ");
-  Serial.println(ph_act);
+  Serial.println(ph_act, 2);
   Serial.print("pH Compensated: ");
-  Serial.println(pH_compensated);
+  Serial.println(pH_compensated, 2);
   Serial.println("----------");
 
+  // LCD Display - show compensated pH value
   lcd.setCursor(0, 0);
   lcd.print("pH:");
-  lcd.print(pH_compensated, 1);
+  lcd.print(pH_compensated, 2);  // Show  decimal places
   lcd.print("  ");
   
   lcd.setCursor(0, 1);
