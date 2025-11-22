@@ -1,0 +1,13 @@
+----------
+Temperatura= 21.12 C
+Voltage: 3.8639
+pH Raw: -22.02
+pH Compensated: -21.91
+----------
+
+
+ph_act = (-5.70 × volt) + calibration_offset
+3.86 = (-5.70 * 3.8639) + calibration_offset
+3.86 = -22.02423 + calibration_offset
+calibration_offset = 3.86 + 22.02423
+calibration_offset= 25.88423
