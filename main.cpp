@@ -83,8 +83,8 @@ void loop() {
   lcd.print("  ");
   
   lcd.setCursor(0, 1);
-  lcd.print("T:");
-  lcd.print(temp1, 1);
+  lcd.print("Temp:");
+  lcd.print(temp1, 2);
   lcd.print("C ");
   
   delay(1000);
