@@ -12,7 +12,7 @@ unsigned long int avgval;
 int buffer_arr[10], temp;
 
 // YOUR CALCULATED CALIBRATION VALUES
-float calibration_offset = 25.88423;  // Your calculated offset
+float calibration_offset = 25.88423;  // Your calculated offset era:25.88423 // 23.62532
 float slope = -5.70;  // Keep the same slope for now
 
 void setup() {
@@ -75,6 +75,7 @@ void loop() {
   Serial.print("pH Compensated: ");
   Serial.println(pH_compensated, 2);
   Serial.println("----------");
+  delay(4000);
 
   // LCD Display - show compensated pH value
   lcd.setCursor(0, 0);
